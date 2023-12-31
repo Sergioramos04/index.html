@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Index</title>
+</head>
+<body>
+    <h1>2024</h1>
+    <p>contagem regressiva de ano novo</p>
+    <div class="container">
+    <div class="bx">
+    <div id="dia" class="contador"></div>
+    <div class="caption">Dias</div>
+     </div>
+    <div class="bx">
+    <div id="hora" class="contador"></div>
+    <div class="caption">Horas</div>
+      </div>
+     <div class="bx">
+     <div id="minuto" class="contador"></div>
+     <div class="caption">Minutos</div>
+         </div>
+    <div class="bx">
+    <div id="segundo" class="contador"></div>
+     <div class="caption">Segundos</div>
+        </div>                        
+    </div>
+
+    <script>
+
+        var dataPrevista =new Date('janeiro 1, 2024 00:00:00').getTime();
+
+        function anoNovo(){
+            var atual= new Date().getTime();
+            dieferenca = dataPrevista - atual;
+
+            var segundo = 1000;
+            var minuto = segundo * 60;
+            var hora = minuto * 60;
+            var dia = hora * 24;
+
+            var d = Math.floor(dieferenca / (dia));
+            var h = Math.floor((dieferenca % (dia)) / (hora));
+            var m = Math.floor((dieferenca % (hora)) / (minuto));
+            var s = Math.floor((dieferenca % (minuto)) / (segundo));
+
+            document.getElementById('dia').innerText = d;
+            document.getElementById('hora').innerText = h;
+            document.getElementById('minuto').innerText = m;
+            document.getElementById('segundo').innerText = s;
+        }
+
+        setInterval(function(){
+            anoNovo();
+        }, 1000)
+
+        
+    </script>
+</body>
+</html>
